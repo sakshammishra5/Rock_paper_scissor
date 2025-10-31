@@ -1,0 +1,123 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: lightgreen;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.score_Card {
+    margin: 10px auto;
+    width: 800px;
+    height: 158px;
+    border: 5px solid white;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.score_Card_Title {
+    color: #FFFFFF;
+    height: 137px;
+    width: 135px;
+    font-size: xx-large;
+    font-weight: 500;
+    letter-spacing: 10%;
+    line-height: 45%;
+    display: flex;
+    justify-content: center;
+}
+
+.score_Card_Title div {
+    margin-top: 10%;
+}
+
+.score_display_digit {
+    width: 139px;
+    height: 128px;
+    background-color: #FFFFFF;
+    color: rgb(49, 48, 48);
+    border-radius: 9px;
+    display: flex;
+    justify-content: center;
+}
+
+.score_display_digit p {
+    font-size: 17px;
+    color: gray;
+    letter-spacing: 10%;
+    line-height: 17px;
+}
+
+#user_score {
+    font-size: 68px;
+    margin-top: 20px;
+    color: black;
+}
+
+#computer_score {
+    font-size: 68px;
+    margin-top: 20px;
+    color: black;
+}
+
+.score_display {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+
+.hand_selection_section {
+    margin-top: 90px;
+}
+
+.hand {
+    height: 100px;
+    width: 100px;
+    background-color: #FFFFFF;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: xx-large;
+}
+
+
+.paper {
+    border: 13px solid yellow;
+}
+
+.stone {
+    border: 13px solid blue;
+}
+
+.scissor {
+    border: 13px solid purple;
+}
+
+.hand_container {
+    display: flex;
+    justify-content: center;
+}
+
+.selected_section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 90px;
+    gap: 50px;
+    text-align: center;
+}
+
+.selected_section p {
+    color: white;
+}
+
+.hideSection {
+    display: none;
+}

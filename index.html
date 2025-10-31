@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissor</title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <script src="https://kit.fontawesome.com/5e0967cae4.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="score_Card">
+        <div class="score_Card_Title">
+            <div>
+                <p>Rock</p><br>
+                <p>Paper</p><br>
+                <p>Scissor</p><br>
+            </div>
+        </div>
+        <div class="score_display">
+            <div class="score_display_digit">
+                <div>
+                    <p>User</p> <!-- Changed from Computer -->
+                    <p>score</p>
+                    <p id="user_score">0</p> <!-- Added id -->
+                </div>
+            </div>
+            <div class="score_display_digit">
+                <div>
+                    <p>Computer</p>
+                    <p>score</p>
+                    <p id="computer_score">0</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Rock paper scissor selection -->
+    <section class="hand_selection_section">
+        <div class="hand_container">
+            <div class="hand paper"><i class="fa-solid fa-hand"></i></div>
+            <div class="hand stone"><i class="fa-solid fa-hand-fist"></i></div>
+            <div class="hand scissor"><i class="fa-solid fa-hand-scissors"></i></div>
+        </div>
+    </section>
+
+    <div class="selected_section hideSection">
+        <!-- User selected area -->
+        <section class="you_picked">
+            <p>You Picked</p>
+            <div class="hand user_picked">
+                <i class="user_selected_Icon fa-solid fa-hand-fist"></i>
+            </div>
+        </section>
+    
+        <!-- Anouncement Area  -->
+        <section>
+            <p id="winner_message">You Win against Pc</p>
+            <button id="play_Again">Play again</button>
+        </section>
+    
+        <!-- Pc selected area -->
+        <section>
+            <p>Pc picked</p>
+            <div class="hand user_picked">
+                <i class="pc_selected_Icon fa-solid fa-hand-fist"></i>
+            </div>
+        </section>
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="./script.js"></script>
+</body>
+
+</html>
