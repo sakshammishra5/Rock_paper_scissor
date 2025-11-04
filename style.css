@@ -5,19 +5,19 @@
 }
 
 body {
-    background-color: lightgreen;
+    background-color: #8ccf66;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .score_Card {
-    margin: 10px auto;
-    width: 800px;
+    margin: 16px auto;
+    width: 880px;
     height: 158px;
     border: 5px solid white;
     border-radius: 10px;
     display: flex;
     justify-content: space-between;
-    padding: 10px;
+    padding: 16px 18px;
 }
 
 .score_Card_Title {
@@ -37,13 +37,14 @@ body {
 }
 
 .score_display_digit {
-    width: 139px;
+    width: 160px;
     height: 128px;
     background-color: #FFFFFF;
     color: rgb(49, 48, 48);
     border-radius: 9px;
     display: flex;
     justify-content: center;
+    box-shadow: 0 6px 0 rgba(0,0,0,0.08);
 }
 
 .score_display_digit p {
@@ -53,17 +54,9 @@ body {
     line-height: 17px;
 }
 
-#user_score {
-    font-size: 68px;
-    margin-top: 20px;
-    color: black;
-}
+#user_score { font-size: 70px; margin-top: 10px; color: black; }
 
-#computer_score {
-    font-size: 68px;
-    margin-top: 20px;
-    color: black;
-}
+#computer_score { font-size: 70px; margin-top: 10px; color: black; }
 
 .score_display {
     display: flex;
@@ -77,47 +70,147 @@ body {
 }
 
 .hand {
-    height: 100px;
-    width: 100px;
+    height: 120px;
+    width: 120px;
     background-color: #FFFFFF;
     border-radius: 50%;
-    display: flex;
+    display: inline-flex;
     justify-content: center;
     align-items: center;
-    font-size: xx-large;
+    font-size: 34px;
+    cursor: pointer;
+    box-shadow: inset 0 -6px 0 rgba(0,0,0,0.05), 0 4px 0 rgba(0,0,0,0.08);
 }
 
 
-.paper {
-    border: 13px solid yellow;
-}
+.paper { border: 13px solid #f2c94c; }
 
-.stone {
-    border: 13px solid blue;
-}
+.stone { border: 13px solid #2d9cdb; }
 
-.scissor {
-    border: 13px solid purple;
-}
+.scissor { border: 13px solid #a259ff; }
 
 .hand_container {
-    display: flex;
-    justify-content: center;
+    position: relative;
+    width: 700px;
+    height: 420px;
+    margin: 30px auto 0;
+}
+
+/* place the three hands at triangle corners */
+.hand_container .paper { position: absolute; top: 40px; left: 80px; }
+.hand_container .scissor { position: absolute; top: 40px; right: 80px; }
+.hand_container .stone { position: absolute; bottom: 35px; left: 50%; transform: translateX(-50%); }
+
+/* connecting dark lines */
+.hand_container .line {
+    position: absolute;
+    background: rgba(0,0,0,0.25);
+    height: 16px;
+    border-radius: 16px;
+}
+.hand_container .line-a { /* paper to scissor */
+    top: 113px;                 /* align with circle center */
+    left: 226px;                /* start just outside left circle border */
+    right: 226px;               /* end just outside right circle border */
+}
+.hand_container .line-b { /* paper to stone */
+    height: 16px;
+    width: 300px;
+    top: 155px;
+    left: 185px;
+    transform: rotate(58deg);
+    transform-origin: left center;
+}
+.hand_container .line-c { /* scissor to stone */
+    height: 16px;
+    width: 300px;
+    top: 155px;
+    right: 185px;
+    transform: rotate(-58deg);
+    transform-origin: right center;
 }
 
 .selected_section {
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr 360px 1fr;
     align-items: center;
-    margin-top: 90px;
-    gap: 50px;
+    justify-items: center;
+    margin-top: 60px;
+    column-gap: 90px;
     text-align: center;
+    max-width: 800px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .selected_section p {
     color: white;
 }
 
-.hideSection {
-    display: none;
+.you_picked,
+.pc_picked {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+
+/* result labels above circles */
+.you_picked p,
+.pc_picked p {
+    color: #e7f4e1;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 14px;
+}
+
+.hideSection {
+    display: none !important;
+}
+
+/* result screen */
+.you_picked .hand,
+.pc_picked_hand {
+    height: 180px;
+    width: 180px;
+}
+
+.ring-win {
+    /* layered green rings like the mock */
+    box-shadow:
+        0 0 0 28px rgba(33, 150, 83, 0.35),
+        0 0 0 78px rgba(33, 150, 83, 0.20),
+        0 0 0 128px rgba(33, 150, 83, 0.12),
+        0 14px 20px rgba(0,0,0,0.20);
+}
+
+.result_center { text-align: center; min-width: 340px; }
+.result_center #winner_message { color: #fff; margin-bottom: 16px; display: flex; flex-direction: column; gap: 6px; }
+.result_center #winner_message .big { font-size: 36px; font-weight: 800; letter-spacing: 3px; }
+.result_center #winner_message .sub { font-size: 18px; font-weight: 800; letter-spacing: 4px; opacity: 0.92; }
+.result_center #play_Again,
+#rules_btn {
+    background: #fff; border: none; padding: 12px 20px; border-radius: 8px; cursor: pointer; font-weight: 700; letter-spacing: 1px; box-shadow: 0 6px 14px rgba(0,0,0,0.18);
+}
+
+/* footer actions */
+.footer_actions { position: fixed; right: 24px; bottom: 24px; display: flex; gap: 10px; }
+.footer_actions #rules_btn, .footer_actions #next_btn { padding: 8px 14px; border-radius: 6px; font-weight: 700; letter-spacing: 1px; }
+
+/* Win screen */
+.win_screen { position: fixed; inset: 0; background: #8ccf66; display: flex; align-items: center; justify-content: center; z-index: 1200; }
+.win_content { text-align: center; color: #fff; }
+.trophy_wrap { position: relative; margin-bottom: 18px; }
+.trophy_svg { filter: drop-shadow(0 10px 12px rgba(0,0,0,0.2)); }
+.stars { position: absolute; inset: -40px 0 auto 0; display: flex; justify-content: center; gap: 28px; color: rgba(255,255,255,0.7); font-size: 28px; pointer-events: none; }
+.hurray { font-size: 54px; letter-spacing: 6px; margin: 6px 0 8px; }
+.won_sub { font-size: 20px; letter-spacing: 6px; opacity: 0.95; margin-bottom: 16px; }
+#play_again_win { background: #fff; color: #222; border: none; padding: 10px 22px; border-radius: 8px; font-weight: 700; box-shadow: 0 6px 14px rgba(0,0,0,0.18); }
+
+/* rules modal */
+.rules_modal { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.4); z-index: 1000; }
+.rules_card { position: relative; width: 330px; background: #11473c; color: #fff; border-radius: 10px; padding: 20px; border: 4px solid #fff; z-index: 1001; }
+.rules_card h3 { margin-bottom: 12px; }
+.rules_card ul { margin-left: 18px; line-height: 1.4; }
+.rules_card .close_rules { position: absolute; right: -14px; top: -14px; background: #ff4d4f; color: #fff; border: 3px solid #fff; height: 32px; width: 32px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; z-index: 1002; }

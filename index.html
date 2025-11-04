@@ -40,9 +40,14 @@
     <!-- Rock paper scissor selection -->
     <section class="hand_selection_section">
         <div class="hand_container">
-            <div class="hand paper"><i class="fa-solid fa-hand"></i></div>
-            <div class="hand stone"><i class="fa-solid fa-hand-fist"></i></div>
-            <div class="hand scissor"><i class="fa-solid fa-hand-scissors"></i></div>
+            <!-- connecting lines to form triangle -->
+            <span class="line line-a"></span>
+            <span class="line line-b"></span>
+            <span class="line line-c"></span>
+
+            <button class="hand paper" aria-label="paper"><i class="fa-solid fa-hand"></i></button>
+            <button class="hand stone" aria-label="stone"><i class="fa-solid fa-hand-fist"></i></button>
+            <button class="hand scissor" aria-label="scissor"><i class="fa-solid fa-hand-scissors"></i></button>
         </div>
     </section>
 
@@ -55,19 +60,60 @@
             </div>
         </section>
     
-        <!-- Anouncement Area  -->
-        <section>
-            <p id="winner_message">You Win against Pc</p>
-            <button id="play_Again">Play again</button>
+        <!-- Announcement Area  -->
+        <section class="result_center">
+            <p id="winner_message">YOU WIN AGAINST PC</p>
+            <button id="play_Again">PLAY AGAIN</button>
         </section>
     
         <!-- Pc selected area -->
-        <section>
-            <p>Pc picked</p>
-            <div class="hand user_picked">
+        <section class="pc_picked">
+            <p>PC Picked</p>
+            <div class="hand pc_picked_hand">
                 <i class="pc_selected_Icon fa-solid fa-hand-fist"></i>
             </div>
         </section>
+    </div>
+
+    <!-- Rules Button and Modal -->
+    <div class="footer_actions">
+        <button id="rules_btn">RULES</button>
+        <button id="next_btn" class="hideSection">NEXT</button>
+    </div>
+
+    <!-- Win Screen -->
+    <section id="win_screen" class="win_screen hideSection" aria-hidden="true">
+        <div class="win_content">
+            <div class="trophy_wrap" aria-hidden="true">
+                <!-- simple trophy + stars using inline SVG -->
+                <svg class="trophy_svg" width="180" height="160" viewBox="0 0 200 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="#F2C94C">
+                        <path d="M76 130h48c6 0 10 4 10 10v10H66v-10c0-6 4-10 10-10z"/>
+                        <path d="M84 120h32v-18c16-6 28-22 28-40V30H56v32c0 18 12 34 28 40v18z"/>
+                        <path d="M56 30H36c0 26 12 40 28 44V30zM144 30h20c0 26-12 40-28 44V30z"/>
+                    </g>
+                </svg>
+                <div class="stars" aria-hidden="true">
+                    <span>✦</span><span>✦</span><span>✦</span><span>✦</span><span>✦</span>
+                </div>
+            </div>
+            <h1 class="hurray">HURRAY!!</h1>
+            <p class="won_sub">YOU WON THE GAME</p>
+            <button id="play_again_win">PLAY AGAIN</button>
+        </div>
+    </section>
+
+    <div id="rules_modal" class="rules_modal hideSection" role="dialog" aria-modal="true" aria-labelledby="rules_heading">
+        <div class="rules_card">
+            <button class="close_rules" type="button" aria-label="close rules"><i class="fa-solid fa-xmark"></i></button>
+            <h3 id="rules_heading">Game Rules</h3>
+            <ul>
+                <li>Rock beats Scissors, Scissors beat Paper, Paper beats Rock.</li>
+                <li>A draw results in zero additional points.</li>
+                <li>Winner gets +1 point each round.</li>
+                <li>Both players choose at the same time.</li>
+            </ul>
+        </div>
     </div>
 
 
