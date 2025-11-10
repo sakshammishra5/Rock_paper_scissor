@@ -65,7 +65,7 @@ $(function () {
             $("#play_Again").text("PLAY AGAIN");
             $("#next_btn").addClass("hideSection");
         } else {
-            $("#winner_message").html("<span class='big'>TIE UP</span>");
+            $("#winner_message").text("Tie");
             $("#play_Again").text("REPLAY");
             $("#next_btn").addClass("hideSection");
         }
