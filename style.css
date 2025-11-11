@@ -48,6 +48,9 @@ body {
 }
 
 .score_display_digit p {
+    text-align: center;
+    line-height: 20px;
+    letter-spacing: 10%;
     font-size: 17px;
     color: gray;
     letter-spacing: 10%;
