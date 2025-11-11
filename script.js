@@ -37,6 +37,22 @@ $(function () {
         }
     }
 
+
+
+    function applyRPSClassesToParent() {
+        // Clean old classes
+        $('.hand').removeClass('paper stone scissor');
+
+        // Paper
+        $('.hand i.fa-hand').closest('.hand').addClass('paper');
+
+        // Stone
+        $('.hand i.fa-hand-fist').closest('.hand').addClass('stone');
+
+        // Scissor
+        $('.hand i.fa-hand-scissors').closest('.hand').addClass('scissor');
+    }
+
     // Initial score display
     updateScoreDisplay();
 
@@ -52,6 +68,7 @@ $(function () {
         winner = calculateWinner(userSelected, pcSelected);
         updateSelectedIcon(userSelected, "user");
         updateSelectedIcon(pcSelected, "pc");
+        applyRPSClassesToParent()
 
         resetRings();
         if (winner === "User Wins") {
@@ -81,30 +98,30 @@ $(function () {
     });
 
     // Rules modal
-    $("#rules_btn").on("click", function(){
+    $("#rules_btn").on("click", function () {
         $("#rules_modal").removeClass("hideSection");
     });
     // Next navigates to win screen
-    $("#next_btn").on("click", function(){
+    $("#next_btn").on("click", function () {
         $("#win_screen").removeClass("hideSection");
     });
     // Play again from win screen
-    $("#play_again_win").on("click", function(){
+    $("#play_again_win").on("click", function () {
         $("#win_screen").addClass("hideSection");
         $("#play_Again").trigger("click");
     });
     // Close rules (delegated to handle any DOM changes)
-    $(document).on("click", ".close_rules, .close_rules i", function(e){
+    $(document).on("click", ".close_rules, .close_rules i", function (e) {
         e.preventDefault();
         e.stopPropagation();
         $("#rules_modal").addClass("hideSection");
     });
     // click outside the card closes the modal
-    $(document).on("click", "#rules_modal", function(e){
+    $(document).on("click", "#rules_modal", function (e) {
         if (e.target === this) $(this).addClass("hideSection");
     });
     // ESC key closes modal
-    $(document).on("keydown", function(e){
+    $(document).on("keydown", function (e) {
         if (e.key === "Escape") $("#rules_modal").addClass("hideSection");
     });
 
