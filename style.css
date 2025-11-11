@@ -111,8 +111,8 @@ body {
 }
 .hand_container .line-a { /* stone to scissor */
     top: 92px;
-    left: 200px;
-    right: 200px;
+    left: 100px;
+    right: 100px;
 }
 .hand_container .line-b { /* stone to paper */
     height: 16px;
